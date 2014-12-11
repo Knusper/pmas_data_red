@@ -1,0 +1,41 @@
+# parameter file for fluxsens.sh
+
+# default (only change when absolutely neccesary)
+name='sensfunc'
+
+# PATH VARIABLES:
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night)
+mainpath=${run212_path}
+night=/night3/
+block=/standard_beginning/
+
+# user parameter file
+userparfile=${mainpath}lars_general.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# format of the input calibration standard star spectrum
+# (see $p3d_path/routines/p3d_misc_fluxcal_read_file_standard_star.pro for
+# allowed formats)
+standard_star_fmt='oke'
+
+# 1D extracted (sky subtracted) spectra (using the p3d gui) of the flux
+# of the standard star
+input_spectrum=${mainpath}${night}${block}/extracted/std_sky_sub_extracted_09-04-12--1449_run212_00274_imcmb_crcl_oextr_spectrum.fits
+
+# file containing the input standard star spectrum
+standard_star_file=${mainpath}/oke_standards/fbd75d325.dat
+
+# extinction curve 
+extinct_file=${mainpath}/caha_ext_curves/CaHaextinct.dat
+
+# interpolation function
+# (allowed values are: spline, cspline, ispline, iquadratic, ilsquadratic or
+# an integer for the order of the polynomial) 
+interpol_func='spline'
+
+# splinetension (if interpolation function == spline)
+# for description see ${p3d_path}/routines/p3d_tool_fluxcal_sensetivity_function.pro
+splinetension=10.0

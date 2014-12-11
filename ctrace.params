@@ -1,0 +1,22 @@
+# PARAMETER FILE FOR ctrace.sh
+
+# PATH VARIABLES:
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night)
+mainpath=/work1/herenz/pmas/run197/
+night=/night3/
+block=/Q0308+0129/
+
+# comma separated list of continuum lamp exposures (only quadrant a)
+inputfiles='run197_01483a.fits,run197_01488a.fits,run197_01493a.fits,run197_01497a.fits'
+
+(note: the master bias is only used when optimal extraction
+# is chosen in the user parameter file. however, if this is not the case
+# specifying it does not hurt)
+masterbias=${mainpath}${night}/bias/masterbias/masterbias_03-30-12--2150_mbias.fits
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm

@@ -1,0 +1,31 @@
+# parameter file for fluxcal.sh
+
+# default (only change when absolutely neccesary)
+name='fluxcalib'
+extracted_name='extracted'
+
+# PATH VARIABLES:
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night)
+mainpath=${run212_path}
+night=/night3/
+block=/standard_beginning/
+# sensfuncdir = folder in $night where sensitivity function is stored
+sensfuncdir='/standard_beginning/sensfunc/'
+
+# user parameter file
+userparfile=${mainpath}lars_general.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# sensitivity function fits file
+sensfunc=${mainpath}${night}/${sensfuncdir}/sensfunc_09-05-12_run212_00274_imcmb_crcl_oextr_spectrum_fluxsens.fits
+
+# extinction curve 
+extinct_file=${mainpath}/caha_ext_curves/CaHaextinct.dat
+
+# comma separated list of input rss files that are to be fluxcalibrated
+# (these files must be located in ${mainpath}/${night}/${block}/${extracted_name}
+# (input_rss='exposure1_oextr.fits, exposure2_oextr.fits)
+input_rss='extracted_09-04-12--1449_run212_00274_imcmb_crcl_oextr.fits'

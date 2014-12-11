@@ -1,0 +1,48 @@
+# PARAMETER FILE FOR oextr.sh
+
+# default (only change if absolutely neccesary)
+name='extracted'
+
+# (mandatory) PATH VARIABLES:
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night)
+mainpath=/work1/herenz/pmas/run197/
+night=/night3/
+block=/skyflat/
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# inputfile(s) (if a comma separated list is given, the combined
+# exposure will be extracted, which is usefull for e.g. twilight
+# flats)
+inputfile='run197_01506a.fits,run197_01507a.fits,run197_01508a.fits,run197_01509a.fits'
+
+# tracemask
+tracemask=${mainpath}${night}${block}/tracemask/tracemask_comb_05-24-12--2101_run197_01507_imcmb.fits
+
+# dispersion mask
+dispmask=${mainpath}${night}${block}/dispmask/dispmask_05-24-12--2221_run197_01510_imcmb_dmask.fits
+
+# flatfield (leave emtpy if no flatfield is needed)
+flatfield=
+
+# master bias
+masterbias=${mainpath}${night}/all_without_closing_mbias.fits
+
+# instrument parameter file 
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# special parameters
+# (best used for switches, for object extraction the following are possible:
+# /biaspx, /biaspy, /biasox, /biasoy, /biasconstant, /drizzle, /orginalerrors,
+# /oneskyoffset, /savee3d, /sbsw (?),  /exmonitor, /compress, /gui, /cinv,
+# /nf2f, /scattlightsubtract, /crclean, /nocrmask, /imagemethod, /imageclean, 
+# /writeall, /showcrgui, /satmask, /savefinalflat, /noobcheck, /debug
+special_params='/crclean'

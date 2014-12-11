@@ -1,0 +1,20 @@
+# PARAMETER FILE FOR mbias.sh
+
+# PATH VARIABLES:
+# (mainpath = the run, night = the night, bias = subfolder for biases of that night)
+mainpath=/work1/herenz/pmas/run197/
+night=/night3/
+bias=/bias/
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# comma seperated list of input files as in ${mainpath}${night}${bias} dir
+# e.g. inputfiles='run197_01437a.fits,run197_01461a.fits,run197_01467a.fits'
+# the following example line takes all input files in bias directory 
+# modifiy the regular expresion or provide list manually as in example above
+inputfiles=`ls -m ${mainpath}${night}${bias}/run*a.fits | xargs -n1 basename | tr -d '\n' | tr -d [:space:]`
+name='masterbias'

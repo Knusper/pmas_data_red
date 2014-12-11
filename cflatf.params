@@ -1,0 +1,49 @@
+# PARAMETER FILE FOR cflatf_conventional.sh OR cflatf_advanced.sh
+
+# default name (change if either cflatf_conventional.sh or cflatf_advanced.sh is used)
+name='flatfield_con' # <- for cflatf_conventional.sh
+# name='flatfield_adv' # <- for cflatf_advanced.sh
+
+# (mandatory) PATH VARIABLES
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night)
+mainpath=/work1/herenz/pmas/run197/
+night=/night3/
+block=/skyflat/ # skyflat == twilight-flat
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# inputfile(s) (if a comma separated list is given, the combined
+# exposure will be extracted, which is usefull for e.g. twilight
+# flats) (note: only provide quadrant a) 
+# !!! VARIABLE NAME IS ALWAYS inputfile, even if more than one file is in the list !!!
+inputfile='run197_01506a.fits,run197_01507a.fits,run197_01508a.fits,run197_01509a.fits'
+
+# tracemask (leave empty if you want to calculate the trace mask from
+# the (combined) input raw data file - i.e. tracemask=
+#tracemask=${mainpath}${night}${block}/tracemask/tracemask_comb_05-24-12--2101_run197_01507_imcmb_trace.fits
+tracemask=
+
+# master bias
+masterbias=${mainpath}${night}/bias/masterbias/Q308+0129_mbias.fits
+
+# dispersion mask (mandatory)
+dispmask=${mainpath}${night}${block}/dispmask/dispmask_05-24-12--2221_run197_01510_imcmb_dmask.fits
+
+# special parameters:
+# (best used for switches - for flatfielding the following are possible:
+# /biaspx, /biaspy, /biasox, /biasoy, /biasconstant, /exemonitor(?), /compress, 
+# /gui, /cinv, /scattlightsubtract, /crclean, /nocrmask, /imagemethod, /imageclean,
+# /nocrmask, /imageclean, /writeall, /showcrgui, /satmask (!) 
+special_params=''
+
+# TODO: finish(ed?) - for traditional method
+
+
+
+
+
