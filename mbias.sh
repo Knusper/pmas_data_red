@@ -37,7 +37,9 @@ cwd=`pwd`
 # ..going to where nice stuff is going to happen (well.. a master bias is created)
 cd ${mainpath}${night}${bias}
 # Actual creation of master-bias:
-${p3d_path}/vm/p3d_cmbias_vm.sh ${rt} ${inputfiles} ${parfile} userparfile=${userparfile} \
+# ${rt} and ${s} variables could be set in the envrionment to '-rt' and '-s', respectively.
+# see p3d readme for the meaning of those parameters
+${p3d_path}/vm/p3d_cmbias_vm.sh ${rt} ${s} ${inputfiles} ${parfile} userparfile=${userparfile} \
     opath=${mainpath}${night}${bias}/${name} detector=0 \
     logfile=$logfile loglevel=2 /quiet opfx=$logname
 
