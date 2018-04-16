@@ -1,0 +1,42 @@
+# PARAMETER FILE FOR ldmask_params.sh
+
+# defaults (only change if absolutely neccesary):
+tracedirname='tracemask'
+name='dispmask'
+
+# PATH & FILE VARIABLES:
+# (mainpath = the run, night = the night, block = subfolder for observing block
+# during that night <- you should organize your files in that way)
+mainpath=/work1/herenz/pmas/run197/
+night=/night3/
+block=/Q0308+0129/
+
+# arc lamp exposure
+arc='run197_01498a.fits'
+
+# user parameter file
+userparfile=${mainpath}qsos.prm
+
+# instrument parameter file
+parfile=${p3d_path}/data/instruments/pmas/larr4k.prm
+
+# linelist (not used if input disp. mask is given):
+arclinefile=${mainpath}/qso_linelist.dat
+
+# input dispersion mask
+# (leave empty for starting without an input dispersion mask, 
+# i.e. just using the pure line list -> input_dispersion_mask= ) 
+input_dispersion_mask=${mainpath}${night}${block}/input_dispersion_mask/run197_01484_imcmb_dmask.fits
+
+# associated trace mask 
+tracemask='tracemask_04-26-12--1712_run197_01497_imcmb_trace.fits'
+
+# master bias
+masterbias=${mainpath}${night}/bias/masterbias/masterbias_03-30-12--2150_mbias.fits
+
+# special parameters
+# (best used for switches - for dispersion mask creation the following are possible:
+# /biaspx, /biaspy, /biasox, /biasoy, /biasconstant, /exemonitor, /compress, /gui,
+# /cinv, /crclean, /nocrmask, /imagemethod, /imageclean, /writeall, /showcrgui, /satmask,
+# /noobcheck, /debug
+special_params=
