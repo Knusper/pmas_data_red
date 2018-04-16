@@ -47,14 +47,14 @@ do
 	mbias_name='--- NO MASTERBIAS SPECIFIED ---'
 	# p3d function call *without* master bias
 	echo "Tracing without master bias."
-	${p3d_path}/vm/p3d_ctrace_vm.sh ${rt} ${contframe} ${parfile} \
+	${p3d_path}/vm/p3d_ctrace_vm.sh ${rt} ${s} ${contframe} ${parfile} \
 	    userparfile=${userparfile} opath=${mainpath}${night}${block}/${name}/ \
 	    opfx=${outfileprefix} logfile=${logfile} ${special_params}
     else
 	# p3d function call *with* master bias
 	mbias_name=`basename ${masterbias}`
 	echo "Tracing with master bias: ${mbias_name}"
-	${p3d_path}/vm/p3d_ctrace_vm.sh ${rt} ${contframe} ${parfile}  \
+	${p3d_path}/vm/p3d_ctrace_vm.sh ${rt} ${s} ${contframe} ${parfile}  \
 	    userparfile=${userparfile} opath=${mainpath}${night}${block}/${name}/ \
 	    opfx=${outfileprefix} logfile=${logfile} masterbias=${masterbias} \
 	    ${special_params}
