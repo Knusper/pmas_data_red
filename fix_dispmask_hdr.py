@@ -19,4 +19,4 @@ for key in params_header.keys():
         num_str = 'ARCLN'+str(num).zfill(3)
         params_header[num_str] = params_header[key]
 
-hdu.writeto(filename[:-4]+'hdrfix.fits')
+hdu.writeto(filename[:-4]+'hdrfix.fits', output_verify='ignore')
